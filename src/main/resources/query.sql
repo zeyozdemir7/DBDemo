@@ -1,32 +1,53 @@
 PRAGMA foreign_keys = ON;
 
--- TODO 1:
--- Select all courses.
 
--- TODO 2:
--- Select all students.
+    SELECT * FROM Courses;
 
--- TODO 3:
--- Select students older than 20.
 
--- TODO 4:
--- Show student names together with course names.
+    SELECT * FROM Students;
 
--- TODO 5:
--- Count how many students are in each course.
 
--- TODO 6:
--- Update the first students age.
+    SELECT name, age FROM Students
+    WHERE age > 20;
 
--- Check the update.
 
--- TODO 7:
--- Move second student to a different course.
+    SELECT name, course_name FROM Students s
+    LEFT JOIN Courses c
+    ON s.course_id = c.course_id;
 
--- Check the update using JOIN.
 
--- TODO 8:
--- Delete one student.
 
--- TODO 9:
--- Check the final result.
+
+    SELECT COUNT(student_id), course_name FROM Students s
+    LEFT JOIN Courses c
+    ON s.course_id = c.course_id
+    GROUP BY c.course_name;
+
+
+
+
+    UPDATE Students SET age = 24 WHERE student_id = 1;
+
+
+
+    SELECT student_id, name, age FROM Students
+    WHERE student_id =1;
+
+
+    UPDATE Students SET course_id = 3 WHERE student_id = 2;
+
+
+
+    SELECT s.student_id, c.course_id FROM Students s
+    LEFT JOIN Courses c
+    ON s.course_id = c.course_id
+    WHERE student_id = 2;
+
+
+    DELETE FROM Students
+    WHERE student_id = 5;
+
+
+SELECT * FROM Students s
+    LEFT JOIN Courses c
+        ON s.course_id = c.course_id;
