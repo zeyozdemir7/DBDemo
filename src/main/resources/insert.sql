@@ -1,21 +1,23 @@
 PRAGMA foreign_keys = ON;
 
 -- Delete students first because students depends on courses.
-DELETE FROM students;
-DELETE FROM courses;
+DELETE
+FROM students;
+DELETE
+FROM courses;
 
--- TODO 1:
--- Insert 3 courses.
--- Remember:
--- course_id is a number.
--- course_name must be present.
--- credits must be greater than 0.
 
--- TODO 2:
--- Insert 5 students.
--- Remember:
--- id is a number.
--- name must be present.
--- email must be unique.
--- age must be 18 or older.
--- course_id must exist in the courses table.
+INSERT INTO Courses(course_id, course_name, credits)
+VALUES (1, 'Software Engineering', 4),
+       (2, 'Object Oriented Programming', 3),
+       (3, 'Database Management Systems', 5);
+
+
+
+INSERT INTO Students(student_id, name, email, age, course_id)
+VALUES (1, 'Zeynep', 'zeynep@example.com', 19, 1),
+       (2, 'Yusuf', 'yusuf@example.com', 23, 2),
+       (3, 'Jekabs', 'jekabs@example.com', 27, 3),
+       (4, 'Ieva', 'ieva@example.com', 25, 2),
+       (5, 'Ece', 'ece@example.com', 18, 3)
+;
